@@ -1,20 +1,24 @@
-﻿// Personel_bilgileri.cpp : Bu dosya 'main' işlevi içeriyor. Program yürütme orada başlayıp biter.
-//
-
-#include <iostream>
-
+#include<iostream>
+#include<fstream>
+#include<string>
+using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
-}
-
-// Programı çalıştır: Ctrl + F5 veya Hata Ayıkla > Hata Ayıklamadan Başlat menüsü
-// Programda hata ayıkla: F5 veya Hata Ayıkla > Hata Ayıklamayı Başlat menüsü
-
-// Kullanmaya Başlama İpuçları: 
-//   1. Dosyaları eklemek/yönetmek için Çözüm Gezgini penceresini kullanın
-//   2. Kaynak denetimine bağlanmak için Takım Gezgini penceresini kullanın
-//   3. Derleme çıktısını ve diğer iletileri görmek için Çıktı penceresini kullanın
-//   4. Hataları görüntülemek için Hata Listesi penceresini kullanın
-//   5. Yeni kod dosyaları oluşturmak için Projeye Git > Yeni Öğe ekle veya varolan kod dosyalarını projeye eklemek için Proje > Var Olan Öğeyi Ekle adımlarını izleyin
-//   6. Bu projeyi daha sonra yeniden açmak için Dosya > Aç > Proje'ye gidip .sln uzantılı dosyayı seçin
+	fstream dosya;
+	dosya.open("PersonelBilgileri.txt", ios::out);
+	string ad1 = "Kenan", ad2 = "Yaman", soyad1 = "Koper", dogumyeri1 = "İstanbul", dogumyeri2 = "Tozludere";
+	int dogumyili1 = 1978, dogumyili2 = 1990, numara1 = 111, numara2 = 123;
+	dosya << numara1 << "\t" << ad1 << "\t" << soyad1 << "\t" << dogumyili1 << "\t" << dogumyeri1 << endl;
+	dosya << numara2 << "\t" << ad2 << "\t" << soyad1 << "\t" << dogumyili2 << "\t" << dogumyeri2 << endl;
+	string ad3 = "Miray", soyad2 = "Sanver", dogumyeri3 = "Yalova";
+	int dogumyili3 = 2004, numara3 = 345;
+	dosya << numara3 << "\t" << ad3 << "\t" << soyad2 << "\t" << dogumyili3 << "\t" << dogumyeri3 << endl;
+	dosya.close();
+	int personelsayisi = 3;
+	int ortalama = 1;
+	int yas1 = 2024 - dogumyili1;
+	int yas2 = 2024 - dogumyili2;
+	int yas3 = 2024 - dogumyili3;
+	ortalama = (yas1 + yas2 + yas3) / 3;
+	cout << " yas ortalamasi = " << ortalama;
+} 
